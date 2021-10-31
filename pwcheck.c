@@ -402,7 +402,7 @@ int main(int argc, char* argv[])
         printf("\nStatistika:");
         printf("\nRuznych znaku: %d", unique_chars);
         printf("\nMinimalni delka: %d", min_length_password);
-        printf("\nPrumerna delka: %.1f", length_of_passwords/count_password);
+        printf("\nPrumerna delka: %.1f\n", length_of_passwords/count_password);
 
     }
 
