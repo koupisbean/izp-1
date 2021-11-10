@@ -320,21 +320,6 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    //pokud neni konec cisla vypise chybu
-    if(endptr[0] != '\0'){
-        printf("[CHYBA] :: Argument LEVEL ve spatnem tvaru!\n");
-        printf(" [0-9] \n");
-        return EXIT_FAILURE;
-    }
-    /*
-    
-    //pokud neni konec cisla vypise chybu
-    if(endptr1[0] != '\0'){
-        printf("[CHYBA] :: Argument PARAM ve spatnem tvaru!\n");
-        printf(" [0-9] \n");
-        return EXIT_FAILURE;
-    }
-
     //kontrola parametru LEVEL => musi byt v intervalu <1,4>
     if(level < 1 || level > 4){
         printf("[CHYBA] :: Chybne zadany argument LEVEL!\n");
@@ -347,7 +332,26 @@ int main(int argc, char* argv[])
         printf("[CHYBA] :: Chybne zadany argument PARAM!\n");
         printf(" (PARAM <1, ..>) \n");
         return EXIT_FAILURE;
-    }*/
+    }
+
+    /*//pokud neni konec cisla vypise chybu
+    if(endptr[0] != '\0'){
+        printf("[CHYBA] :: Argument LEVEL ve spatnem tvaru!\n");
+        printf(" [0-9] \n");
+        return EXIT_FAILURE;
+    }
+    
+    
+    //pokud neni konec cisla vypise chybu
+    if(endptr1[0] != '\0'){
+        printf("[CHYBA] :: Argument PARAM ve spatnem tvaru!\n");
+        printf(" [0-9] \n");
+        return EXIT_FAILURE;
+    }
+
+    */
+
+
 
     //c = chars z funkce getchar()
     int c, i;
