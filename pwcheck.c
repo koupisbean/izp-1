@@ -334,25 +334,6 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    /*//pokud neni konec cisla vypise chybu
-    if(endptr[0] != '\0'){
-        printf("[CHYBA] :: Argument LEVEL ve spatnem tvaru!\n");
-        printf(" [0-9] \n");
-        return EXIT_FAILURE;
-    }
-    
-    
-    //pokud neni konec cisla vypise chybu
-    if(endptr1[0] != '\0'){
-        printf("[CHYBA] :: Argument PARAM ve spatnem tvaru!\n");
-        printf(" [0-9] \n");
-        return EXIT_FAILURE;
-    }
-
-    */
-
-
-
     //c = chars z funkce getchar()
     int c, i;
     //samostatne heslo ze vstupu, 104 => kdyby heslo bylo delsi jak 100 znaku, vypise se chyba
