@@ -312,7 +312,6 @@ int main(int argc, char* argv[])
     if(argc > 3){
         strtoul(argv[3], &stats, 10);
     }
-    /*
 
     //kontrola parametru => jestli nechybi level/param
     if(argc < 3){
@@ -321,14 +320,13 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
-    
     //pokud neni konec cisla vypise chybu
     if(endptr[0] != '\0'){
         printf("[CHYBA] :: Argument LEVEL ve spatnem tvaru!\n");
         printf(" [0-9] \n");
         return EXIT_FAILURE;
     }
-
+    /*
     
     //pokud neni konec cisla vypise chybu
     if(endptr1[0] != '\0'){
