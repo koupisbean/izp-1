@@ -299,6 +299,13 @@ int main(int argc, char* argv[])
     //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
     char *endptr, *endptr1;
 
+    //kontrola parametru => jestli nechybi level/param
+    if(argc < 3){
+        printf("[CHYBA] :: Musite zadat vsechny argumenty!\n");
+        printf(" ./pwcheck (LEVEL <1,4>) (PARAM <1, ..>) [--stats] \n");
+        return EXIT_FAILURE;
+    }
+
     //prevede prvni argument na int
     level = strtoul(argv[1], &endptr, 11);
 
@@ -311,13 +318,6 @@ int main(int argc, char* argv[])
     //pokud prikaz obsahuje vice jak 3 argumenty vytvori se string z toho tretiho pro kontrolu na vypsani statistik
     if(argc > 3){
         strtoul(argv[3], &stats, 10);
-    }
-
-    //kontrola parametru => jestli nechybi level/param
-    if(argc < 3){
-        printf("[CHYBA] :: Musite zadat vsechny argumenty!\n");
-        printf(" ./pwcheck (LEVEL <1,4>) (PARAM <1, ..>) [--stats] \n");
-        return EXIT_FAILURE;
     }
 
     //kontrola parametru LEVEL => musi byt v intervalu <1,4>
