@@ -299,6 +299,9 @@ int main(int argc, char* argv[])
     //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
     char *endptr, *endptr1;
 
+    //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
+    char *stats;
+
     //kontrola parametru => jestli nechybi level/param
     if(argc < 3){
         printf("[CHYBA] :: Musite zadat vsechny argumenty!\n");
@@ -306,19 +309,16 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
 
+    //pokud prikaz obsahuje vice jak 3 argumenty vytvori se string z toho tretiho pro kontrolu na vypsani statistik
+    if(argc > 3){
+        strtoul(argv[3], &stats, 10);
+    }
+
     //prevede prvni argument na int
     level = strtoul(argv[1], &endptr, 11);
 
     //prevede druhy argument na int
     param = strtoul(argv[2], &endptr1, 12);
-    
-    //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
-    char *stats;
-
-    //pokud prikaz obsahuje vice jak 3 argumenty vytvori se string z toho tretiho pro kontrolu na vypsani statistik
-    if(argc > 3){
-        strtoul(argv[3], &stats, 10);
-    }
 
     //kontrola parametru LEVEL => musi byt v intervalu <1,4>
     if(level < 1 || level > 4){
@@ -383,7 +383,7 @@ int main(int argc, char* argv[])
 
     }
 
-    /*//porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
+    //porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
     if(stringCompare(stats, "--stats")){
 
         printf("\nStatistika:");
@@ -391,7 +391,7 @@ int main(int argc, char* argv[])
         printf("\nMinimalni delka: %d", min_length_password);
         printf("\nPrumerna delka: %.1f\n", length_of_passwords/count_password);
 
-    }*/
+    }
 
     return EXIT_SUCCESS;
 
