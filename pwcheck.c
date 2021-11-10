@@ -291,12 +291,11 @@ int handlePasswords(char str[], int needed_level, int needed_param){
 
 
 
-int main(int argc, char* argv[])
+int main()
 {
     //prvni a druhy argument programu
-    int level, param;
-
-    //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
+    int level = 1, param = 1;
+    /*//pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
     char *endptr, *endptr1;
     
     //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
@@ -344,7 +343,7 @@ int main(int argc, char* argv[])
         printf("[CHYBA] :: Chybne zadany argument PARAM!\n");
         printf(" (PARAM <1, ..>) \n");
         return EXIT_FAILURE;
-    }
+    }*/
 
     //c = chars z funkce getchar()
     int c, i;
@@ -395,7 +394,7 @@ int main(int argc, char* argv[])
 
     }
 
-    //porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
+    /*//porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
     if(stringCompare(stats, "--stats")){
 
         printf("\nStatistika:");
@@ -403,7 +402,7 @@ int main(int argc, char* argv[])
         printf("\nMinimalni delka: %d", min_length_password);
         printf("\nPrumerna delka: %.1f\n", length_of_passwords/count_password);
 
-    }
+    }*/
 
     return EXIT_SUCCESS;
 
