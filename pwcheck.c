@@ -305,13 +305,14 @@ int main(int argc, char* argv[])
     //prevede druhy argument na int
     param = strtoul(argv[2], &endptr1, 12);
     
-    /*//pro zjisteni tretiho argumentu, zda se jedna o "--stats"
+    //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
     char *stats;
 
     //pokud prikaz obsahuje vice jak 3 argumenty vytvori se string z toho tretiho pro kontrolu na vypsani statistik
     if(argc > 3){
         strtoul(argv[3], &stats, 10);
     }
+    /*
 
     //kontrola parametru => jestli nechybi level/param
     if(argc < 3){
