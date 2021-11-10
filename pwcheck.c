@@ -300,7 +300,7 @@ int main(int argc, char* argv[])
     char *endptr, *endptr1;
 
     //kontrola parametru => jestli nechybi level/param
-    if(argc < 4){
+    if(argc < 3){
         printf("[CHYBA] :: Musite zadat vsechny argumenty!\n");
         printf(" ./pwcheck (LEVEL <1,4>) (PARAM <1, ..>) [--stats] \n");
         return EXIT_FAILURE;
