@@ -5,7 +5,6 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
 //pro funkci minLengthOfPassword()
 //"globalni" promena pro minimalni delku hesla, vzdy obsahuje minimalni delku
