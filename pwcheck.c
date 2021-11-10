@@ -291,14 +291,21 @@ int handlePasswords(char str[], int needed_level, int needed_param){
 
 
 
-int main()
+int main(int argc, char* argv[])
 {
     //prvni a druhy argument programu
-    int level = 1, param = 1;
-    /*//pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
-    char *endptr, *endptr1;
+    int level, param;
     
-    //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
+    //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
+    char *endptr, *endptr1;
+
+    //prevede prvni argument na int
+    level = strtoul(argv[1], &endptr, 11);
+
+    //prevede druhy argument na int
+    param = strtoul(argv[2], &endptr1, 12);
+    
+    /*//pro zjisteni tretiho argumentu, zda se jedna o "--stats"
     char *stats;
 
     //pokud prikaz obsahuje vice jak 3 argumenty vytvori se string z toho tretiho pro kontrolu na vypsani statistik
@@ -313,8 +320,7 @@ int main()
         return EXIT_FAILURE;
     }
 
-    //prevede prvni argument na int
-    level = strtoul(argv[1], &endptr, 11);
+    
     //pokud neni konec cisla vypise chybu
     if(endptr[0] != '\0'){
         printf("[CHYBA] :: Argument LEVEL ve spatnem tvaru!\n");
@@ -322,8 +328,7 @@ int main()
         return EXIT_FAILURE;
     }
 
-    //prevede druhy argument na int
-    param = strtoul(argv[2], &endptr1, 12);
+    
     //pokud neni konec cisla vypise chybu
     if(endptr1[0] != '\0'){
         printf("[CHYBA] :: Argument PARAM ve spatnem tvaru!\n");
