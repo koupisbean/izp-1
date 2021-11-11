@@ -180,29 +180,29 @@ int main(int argc, char* argv[]){
     //kontrola argumentu
     if(argc < 3){
         printf("Chybi nejaky argument!\n");
-        return 1;
+        return EXIT_FAILURE;
     }
     level = strtoul(argv[1], &endptr, 11);
     //kontrola parametru LEVEL, zda je ve spravnem tvaru
     if(endptr[0] != '\0'){
         printf("Chybny tvar argumentu LEVEL!\n");
-        return 1;
+        return EXIT_FAILURE;
     }
     //kontrola parametru LEVEL
     if(level < 1 || level > 4){
         printf("Chybne zadany argument LEVEL, LEVEL musi byt cele cislo v intervalu <1, 4>\n");
-        return 1;
+        return EXIT_FAILURE;
     }
     param = strtoul(argv[2], &endptr1, 12);
     //kontrola parametru PARAM, zda je ve spravnem tvaru
     if(endptr1[0] != '\0'){
         printf("Chybny tvar argumentu PARAM!\n");
-        return 1;
+        return EXIT_FAILURE;
     }
     //kontrola parametru PARAM
     if(param < 1){
         printf("Chybne zadany argument PARAM, PARAM musi byt cele kladne cislo v intervalu\n");
-        return 1;
+        return EXIT_FAILURE;
     }
 
 
