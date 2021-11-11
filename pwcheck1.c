@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 int min_delka_hesel = 0;
 int ascii_tabulka[93];
 int unikatni_znaky = 0;
