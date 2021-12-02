@@ -289,6 +289,29 @@ int handlePasswords(char str[], int needed_level, int needed_param){
 
 }
 
+int getLenght(char *buffer){
+    int lenght = 0;
+    while(buffer[lenght] != '\0' && buffer[lenght] != '\n'){
+        lenght++;  
+    }
+    return lenght;
+}
+
+
+long getValue(char *buffer){
+    int lenght = getLenght(buffer);
+    unsigned long long value = 0;
+    for (int i = 0; (i < lenght) && (i<10); i++){
+        //converts only if the string contains numbers
+        if(((buffer[i] >= '0')&&(buffer[i] <= '9'))){
+            value = value * 10 + buffer[i] - '0'; //puts evaluated digit to the end of the number  
+        }
+        else return -1;
+    }
+    return value;
+}
+
+
 
 
 int main(int argc, char* argv[])
@@ -296,7 +319,7 @@ int main(int argc, char* argv[])
     //prvni a druhy argument programu
     int level, param;
     
-    //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
+    // //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
     char *endptr, *endptr1;
 
     //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
@@ -314,11 +337,17 @@ int main(int argc, char* argv[])
         strtoul(argv[3], &stats, 10);
     }
 
-    //prevede prvni argument na int
+    // //prevede prvni argument na int
     level = strtoul(argv[1], &endptr, 11);
 
-    //prevede druhy argument na int
+    // //prevede druhy argument na int
     param = strtoul(argv[2], &endptr1, 12);
+
+    // level = getValue(argv[1]);
+    // param = getValue(argv[2]);
+
+    // printf("%d", level);
+    // printf("%d", param);
 
     //kontrola parametru LEVEL => musi byt v intervalu <1,4>
     if(level < 1 || level > 4){
@@ -384,14 +413,14 @@ int main(int argc, char* argv[])
     }
 
     //porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
-    if(stringCompare(stats, "--stats")){
+    // if(stringCompare(stats, "--stats")){
 
-        printf("\nStatistika:");
-        printf("\nRuznych znaku: %d", unique_chars);
-        printf("\nMinimalni delka: %d", min_length_password);
-        printf("\nPrumerna delka: %.1f\n", length_of_passwords/count_password);
+    //     printf("\nStatistika:");
+    //     printf("\nRuznych znaku: %d", unique_chars);
+    //     printf("\nMinimalni delka: %d", min_length_password);
+    //     printf("\nPrumerna delka: %.1f\n", length_of_passwords/count_password);
 
-    }
+    // }
 
     return EXIT_SUCCESS;
 
