@@ -292,7 +292,7 @@ int handlePasswords(char str[], int needed_level, int needed_param){
 int main(int argc, char* argv[])
 {
     //prvni a druhy argument programu
-    int level, param;
+    int level, param, isstats = 0;
     
     // //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
     char *endptr, *endptr1;
@@ -310,14 +310,13 @@ int main(int argc, char* argv[])
     //pokud prikaz obsahuje vice jak 3 argumenty vytvori se string z toho tretiho pro kontrolu na vypsani statistik
     if(argc > 3){
         strtoul(argv[3], &stats, 10);
-    } else {
-        stats = NULL;
+        isstats = 1;
     }
 
-    // //prevede prvni argument na int
+    //prevede prvni argument na int
     level = strtoul(argv[1], &endptr, 11);
 
-    // //prevede druhy argument na int
+    //prevede druhy argument na int
     param = strtoul(argv[2], &endptr1, 12);
 
     //kontrola parametru LEVEL => musi byt v intervalu <1,4>
@@ -384,7 +383,7 @@ int main(int argc, char* argv[])
     }
 
     //porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
-    if(stringCompare(stats, "--stats")){
+    if(isstats == 1 && stringCompare(argv[3], "--stats")){
 
         printf("\nStatistika:");
         printf("\nRuznych znaku: %d", unique_chars);
