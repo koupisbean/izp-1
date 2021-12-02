@@ -314,12 +314,6 @@ int main(int argc, char* argv[])
         strtoul(argv[3], &stats, 10);
     }
 
-    //prevede prvni argument na int
-    level = strtoul(argv[1], &endptr, 11);
-
-    //prevede druhy argument na int
-    param = strtoul(argv[2], &endptr1, 12);
-
     //kontrola parametru LEVEL => musi byt v intervalu <1,4>
     if(level < 1 || level > 4){
         printf("[CHYBA] :: Chybne zadany argument LEVEL!\n");
