@@ -5,6 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+//! odstranena nevyuzita knihovna <math.h>
 
 //pro funkci minLengthOfPassword()
 //"globalni" promena pro minimalni delku hesla, vzdy obsahuje minimalni delku
@@ -292,13 +293,15 @@ int handlePasswords(char str[], int needed_level, int needed_param){
 int main(int argc, char* argv[])
 {
     //prvni a druhy argument programu
-    int level, param, isstats = 0;
+    int level, param, is_stats = 0; //!pridana promena is_stats
     
     // //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
     char *endptr, *endptr1;
 
     //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
     char *stats;
+
+    //! prehozeni podminek (argc > 3) a (argc < 3)
 
     //kontrola parametru => jestli nechybi level/param
     if(argc < 3){
@@ -310,11 +313,25 @@ int main(int argc, char* argv[])
     //pokud prikaz obsahuje vice jak 3 argumenty vytvori se string z toho tretiho pro kontrolu na vypsani statistik
     if(argc > 3){
         strtoul(argv[3], &stats, 10);
-        isstats = 1;
+        is_stats = 1; //! pridano nastaveni na is_stats
     }
 
     //prevede prvni argument na int
     level = strtoul(argv[1], &endptr, 11);
+
+    //! odstranena podminka na kontrolu argumentu
+    //!pokud neni konec cisla vypise chybu
+    //! if(endptr[0] != '\0'){
+    //!     printf("[CHYBA] :: Argument LEVEL ve spatnem tvaru!\n");
+    //!     printf(" [0-9] \n");
+    //!     return EXIT_FAILURE;
+    //! }
+    //!pokud neni konec cisla vypise chybu
+    //! if(endptr1[0] != '\0'){
+    //!     printf("[CHYBA] :: Argument PARAM ve spatnem tvaru!\n");
+    //!     printf(" [0-9] \n");
+    //!     return EXIT_FAILURE;
+    //! }
 
     //prevede druhy argument na int
     param = strtoul(argv[2], &endptr1, 12);
@@ -383,7 +400,7 @@ int main(int argc, char* argv[])
     }
 
     //porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
-    if(isstats == 1 && stringCompare(stats, "--stats")){
+    if(is_stats == 1 && stringCompare(stats, "--stats")){ //! pridana podminka is_stats == 1
 
         printf("\nStatistika:");
         printf("\nRuznych znaku: %d", unique_chars);
