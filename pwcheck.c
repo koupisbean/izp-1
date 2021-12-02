@@ -383,7 +383,7 @@ int main(int argc, char* argv[])
     }
 
     //porovna treti argument programu s retezcem "--stats", pokud se rovna, vypise statistiku
-    if(isstats == 1 && stringCompare(argv[3], "--stats")){
+    if(isstats == 1 && stringCompare(stats, "--stats")){
 
         printf("\nStatistika:");
         printf("\nRuznych znaku: %d", unique_chars);
