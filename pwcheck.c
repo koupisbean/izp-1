@@ -296,7 +296,8 @@ int main(int argc, char* argv[])
     //prvni a druhy argument programu
     int level, param;
     
-
+    //pomocne promene pro kontrolu zda jsou argumenty ve tvaru string nebo int
+    char *endptr, *endptr1;
 
     //pro zjisteni tretiho argumentu, zda se jedna o "--stats"
     char *stats;
@@ -313,15 +314,21 @@ int main(int argc, char* argv[])
         strtoul(argv[3], &stats, 10);
     }
 
+    //prevede prvni argument na int
+    level = strtoul(argv[1], &endptr, 11);
+
+    //prevede druhy argument na int
+    param = strtoul(argv[2], &endptr1, 12);
+
     //kontrola parametru LEVEL => musi byt v intervalu <1,4>
-    if(argv[1] < 1 || argv[1] > 4){
+    if(level < 1 || level > 4){
         printf("[CHYBA] :: Chybne zadany argument LEVEL!\n");
         printf(" (LEVEL <1,4>) \n");
         return EXIT_FAILURE;
     }
 
     //kontrola parametru PARAM => musi byt cele kladne cislo
-    if(argv[2] < 1){
+    if(param < 1){
         printf("[CHYBA] :: Chybne zadany argument PARAM!\n");
         printf(" (PARAM <1, ..>) \n");
         return EXIT_FAILURE;
