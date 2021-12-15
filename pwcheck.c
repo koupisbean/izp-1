@@ -368,7 +368,7 @@ int main(int argc, char* argv[])
             }
 
             //nastavi posledni cast retezce password na konec retezce
-            password[i] = '\0';
+            //! password[i] = '\0'; odstraneno - whitespace na konci hesel
 
             //zjisti zda heslo odpovida podminkam, pokud ano, vypise heslo
             if(handlePasswords(password, level, param)){
